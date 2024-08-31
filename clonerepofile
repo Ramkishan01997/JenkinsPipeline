@@ -1,0 +1,34 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                echo 'cloning git repo'
+               git credentialsId: 'testgit', url: 'https://github.com/Ramkishan01997/JenkinsPipeline.git'
+            }
+        }
+            stage('merge') {
+            steps {
+                echo 'code merged sucess'
+            }
+        
+        }
+        stage('run') {
+            steps {
+                echo 'Test runeed sucess'
+            }
+        }
+        
+        
+       
+   
+        stage('Release') {
+            steps {
+                echo 'release to prod'
+            }
+        }
+    }
+}
+
